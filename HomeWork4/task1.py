@@ -14,5 +14,10 @@ matrix = [[1, 2, 3],
           [4, 5, 6]]
 
 # print(np.matrix(matrix)) // печать матрицы с использованием библиотеки 'numpy'
-print(matrix)
-print(matrix_transposition(matrix))
+print('Исходная матрица:')
+for i in matrix:
+    print(i)
+
+print('Транспонированная матрица:')
+for i in matrix_transposition(matrix):
+    print(i)
