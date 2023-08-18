@@ -6,17 +6,15 @@
 # В модуль с проверкой даты добавьте возможность запуска в терминале с передачей даты на проверку.
 
 def real_date(data: str):
-    MAXDAY = 30
+    MAXDAY = 31
     MAXMONTH = 12
     MAXYEAR = 9999
     MIN = 1
     MONTH_FEB = 2
-    MONTH_MARCH = 3
-    MONTH_MAY = 5
-    MONTH_JULY = 7
-    MONTH_AUG = 8
-    MONTH_OCTB = 10
-    MONTH_DEC = 12
+    MONTH_APR = 4
+    MONTH_JUN = 6
+    MONTH_SEP = 9
+    MONTH_NOV = 11
     MAXDAY_FEB = 29
     d, m, y = data.split('.')
     day = int(d)
@@ -33,16 +31,13 @@ def real_date(data: str):
                 and day <= MAXDAY_FEB:
             return True
         else:
-            if month == MIN and day == MAXDAY\
-                    or month == MONTH_MARCH and day <= MAXDAY+MIN\
-                    or month == MONTH_MAY and day <= MAXDAY+MIN\
-                    or month == MONTH_JULY and day <= MAXDAY+MIN\
-                    or month == MONTH_AUG and day <= MAXDAY+MIN\
-                    or month == MONTH_OCTB and day <= MAXDAY+MIN\
-                    or month == MONTH_DEC and day <= MAXDAY+MIN:
+            if month == MONTH_APR and day == MAXDAY-MIN\
+                    or month == MONTH_JUN and day <= MAXDAY-MIN\
+                    or month == MONTH_SEP and day <= MAXDAY-MIN\
+                    or month == MONTH_NOV and day <= MAXDAY-MIN:
                 return True
             else:
-                return True
+                return False
 
 
 def _leap_year(year):
