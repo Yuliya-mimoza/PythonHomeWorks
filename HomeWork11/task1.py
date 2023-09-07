@@ -30,7 +30,7 @@ class Matrix:
             return Matrix(self.rows, self.cols, new_data)
         raise ValueError("Матрицы не подходят для сложения")
 
-    def __mult__(self, other):
+    def __mul__(self, other):
         if isinstance(other, (int, float)):
             new_data = ([[self.data[i][j] * other
                         for j in range(self.cols)]
@@ -53,6 +53,6 @@ m2 = Matrix(3, 3)
 m2.data = [[3, 3, 3], [4, 4, 4], [5, 5, 5]]
 print(f'Матрица 2: {m2.data}')
 print()
-print(f'Сравнение значений элементов двух матриц: {m1.__eq__(m2)}\n')
-print(f'Сложение матриц: \n{m1.__add__(m2)}')
-print(f'Умножение матриц: \n{m1.__mult__(m2)}')
+print(f'Сравнение значений элементов двух матриц: {m1==m2}')
+print(f'Сложение матриц: \n{m1+m2}')
+print(f'Умножение матриц: \n{m1*m2}')
