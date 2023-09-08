@@ -39,7 +39,7 @@ class Student:
         self.patronymic = patronymic
 
     def __str__(self) -> str:
-        return f"_____Студент_____\nфамилия: {self.surname}\nимя: {self.name}\nотчество: {self.patronymic}"
+        return f"_____Студент_____\nфамилия:  {self.surname}\nимя:      {self.name}\nотчество: {self.patronymic}"
 
 
 s1 = Student('Иванов', 'Иван', 'Иванович')
