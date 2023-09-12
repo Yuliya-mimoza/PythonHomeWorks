@@ -9,8 +9,16 @@ class ErrorTriangle(Exception):
 
 
 class ErrorSide(Exception):
+    def __init__(self, *args) -> None:
+        self.value = []
+        self.value = args
+        self.new_value = []
+        for el in self.value:
+            if int(el) < 0:
+                self.new_value.append(el)
+
     def __str__(self) -> str:
-        return f'Стороны не могут принимать отрицательное значение'
+        return f"Стороны не могут принимать отрицательное значение: {self.new_value}"
 
 
 class Triangle:
@@ -18,8 +26,8 @@ class Triangle:
         self.side_1 = side_1
         self.side_2 = side_2
         self.side_3 = side_3
-        if self.side_1 or self.side_2 or self.side_3 < 0:
-            raise ErrorSide
+        if self.side_1 < 0 or self.side_2 < 0 or self.side_3 < 0:
+            raise ErrorSide(side_1, side_2, side_3)
 
     def check(self):
         B = 'Треугольник - равносторонний'
@@ -39,5 +47,5 @@ class Triangle:
             return D
 
 
-t1 = Triangle(-5, 5, 5)
+t1 = Triangle(-15, 5, -3)
 print(t1.check())
